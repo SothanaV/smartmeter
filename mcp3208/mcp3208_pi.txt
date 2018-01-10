@@ -1,0 +1,12 @@
+$ sudo apt-get install git
+$ sudo nano /etc/modules
+	add " spidev " in last line
+$ sudo nano /etc/modprobe.d/raspi-blacklist.conf
+	comment " #blacklist spi-bcm2708 " 
+	comment " #i2c " //if use it
+$cd ~
+$ sudo apt-get install python-dev
+$ git clone git://github.com/doceme/py-spidev
+$ cd py-spidev/
+$ sudo python setup.py install
+$ sudo reboot

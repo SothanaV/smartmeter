@@ -54,10 +54,21 @@ int read_adc(int channel){
 
 void loop() 
 { 
- readvalue = read_adc(1); 
- Serial.println(readvalue,DEC); 
- readvalue = read_adc(2); 
- Serial.println(readvalue,DEC); 
- Serial.println(" "); 
- delay(250); 
+ readvalue = read_adc(1);  
+ Serial.print(readvalue);
+ //Serial.println(readvalue,DEC); 
+ Serial.println(" ");
+ int reading = read_adc(2);
+ float voltage = reading*(5.0/4096);
+ float Temp = voltage * 99.5;
+ Serial.print("Read");
+ Serial.print(reading);
+ Serial.print("volt");
+ Serial.print(voltage);
+ Serial.print("Temp");
+ Serial.println(Temp);
+ 
+ 
+  
+ delay(5); 
 } 

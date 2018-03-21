@@ -11,7 +11,6 @@ from django.core.files.storage import FileSystemStorage
 
 @csrf_exempt
 def pi_upload(request):
-	print("PI")
 	if request.method == 'POST' and request.FILES['file']:
 		file = request.FILES['file']
 		fs = FileSystemStorage()
@@ -20,12 +19,12 @@ def pi_upload(request):
 		data = Document.objects.update_or_create(
 			document = filename
 			)
+		print("Save Picture")
 		return HttpResponse("DONE!!!")
-	return HttpResponse("Upload")
+	return HttpResponse("Pic")
 	
 @csrf_exempt
 def pressure(request):
-	print("pressure")
 	if request.method == 'POST':
 		pressure = request.POST['pressure']
 		print(pressure)
@@ -34,4 +33,5 @@ def pressure(request):
 			)
 		#data.save()
 		print("Save Pressure")
-	return HttpResponse("pressure DONE!!")
+		return HttpResponse("DONE!!!")
+	return HttpResponse("Pressure")
